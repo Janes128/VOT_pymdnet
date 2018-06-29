@@ -51,23 +51,20 @@ if __name__ == "__main__":
         sys.exit();
     input("Please Press Enter to start...")
 
-    couter = 3;
+    counter = 3;
     for i in range(3):
-        print("After " + str(couter) + " seconds to take first shot")
-        couter -= 1;
+        print("After " + str(counter) + " seconds to take first shot")
+        counter -= 1;
         time.sleep(1)
 
-    ss.firstShot();
+    ss.firstShot()
 
-    img = cv2.imread('D:\\pyMDNET\\Temp\\0001.jpg')
+    img = cv2.imread('D:\\pyMDNET\\Temp\\img\\0001.jpg')
     cv2.namedWindow('Init_image')
     cv2.imshow('Init_image',img)
     cv2.setMouseCallback('Init_image', draw_rect)
     
     while(1):
-            #s,img = cam.read()
-            #img=cv2.flip(img,1)
-            #cv2.imwrite("room.jpg",img)
         cv2.imshow('Init_image',img)
         k = cv2.waitKey(1) & 0xFF           # Waiting key and make sure that it's at least 8 bits          
         if k == ord('m'):

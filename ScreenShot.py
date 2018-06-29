@@ -5,8 +5,8 @@ from PIL import Image
 from PIL import ImageGrab
 
 def screenShot(pic_num):
-    SaveDirectory= r'D:\pyMDNET\Temp'
-    for i in range(int(pic_num)): 
+    SaveDirectory= r'D:\pyMDNET\Temp\img'
+    for i in range(int(pic_num)):
         img = ImageGrab.grab();
         #saveas=os.path.join(SaveDirectory, 'ScreenShot_'+time.strftime("%Y-%m-%d_%H-%M-%S")+'.jpg') # Named by time
         if i < 10:
@@ -18,11 +18,11 @@ def screenShot(pic_num):
 
         img.save(saveas)
         print("Take " + str(i+1) + " of " + str(pic_num) + "...")
-        time.sleep(0.5)
+        time.sleep(0.05)
     sys.exit();
 
 def firstShot():
-    SaveDirectory= r'D:\pyMDNET\Temp'
+    SaveDirectory= r'D:\pyMDNET\Temp\img'
     img = ImageGrab.grab();
     saveas=os.path.join(SaveDirectory, '0001' +'.jpg')
     img.save(saveas)

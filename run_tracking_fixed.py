@@ -193,7 +193,8 @@ def run_mdnet(img_list, init_bbox, img_mode, img_size):
 
     tic = time.time()
     # Load first image
-    image = img_list[0].convert('RGB')
+    image = Image.fromarray(img_list[0])
+    # image = img_list[0].convert('RGB')
 
     # Train bbox regressor
     bbreg_examples = gen_samples(SampleGenerator('uniform', image.size, 0.3, 1.5, 1.1),
@@ -255,9 +256,9 @@ def run_mdnet(img_list, init_bbox, img_mode, img_size):
     for i in range(1, len(img_list)):
 
         tic = time.time()
-        print("Hello")
         # Load image
-        image = img_list[i].convert('RGB')
+        image = Image.fromarray(img_list[i])
+        # image = img_list[i].convert('RGB')
 
         # Estimate target bbox
         samples = gen_samples(sample_generator, target_bbox, opts['n_samples'])
@@ -377,10 +378,7 @@ if __name__ == "__main__":
     retval, first_image = video.read()
     cv2.namedWindow('Init_image')
     cv2.imshow("Init_image", first_image)
-    # print(type(first_image))
-    cv2.imwrite("first_image.jpg", first_image)
-    im = Image.open("first_image.jpg")
-    print(type(im))
+    im = Image.fromarray(first_image)                # Convert the narray to image
 
     cv2.setMouseCallback('Init_image', draw_rect)
 

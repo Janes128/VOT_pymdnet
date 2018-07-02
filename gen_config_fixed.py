@@ -12,8 +12,10 @@ def gen_config_fixed(path):
 
         seq_name = path
         gt_path = os.path.join(seq_home, seq_name, 'groundtruth_rect.txt')
+        print("The gt_path: ", gt_path)
 
         gt = np.loadtxt(gt_path, delimiter=',')
-        init_bbox = gt[0]
+        print("gt: ", gt)
+        init_bbox = gt
 
     return init_bbox
